@@ -5,8 +5,31 @@
 }
 
 .navbar {
-    width: 40%;
-    height: 5rem;
+    width: fit-content;
     margin: 0 auto;
-    background-color: blue;
+    background-color: rgb(66, 66, 66);
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.link {
+    height: 100%;
+    width: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 4rem;
+    transition: all 1s ease;
+}
+
+.link:hover {
+    background-color: rgb(58, 58, 58);
+    cursor: pointer;
+    color: #2196f3;
+}
+
+.section {
+    margin-top: 10px;
 }
