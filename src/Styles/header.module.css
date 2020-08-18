@@ -1,21 +1,63 @@
 .section {
     min-height: 100vh;
     width: 100%;
-    background-color: #303030;
     overflow-x: hidden;
+    background-image: url("../../static/header-bg.jpg");
+    background-size: cover;
+}
+
+.filter {
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../../static/header-bg.jpg");
-    background-size: cover;
-    filter: grayscale(100%);
 }
 
 .container {
     position: relative;
-    border: solid 10px #2196f3;
-    padding: 2.5rem;
-    z-index: 0;
+    margin: 80px;
+    animation-delay: 1s;
+    -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.container::before, .container::after, .title::before, .title::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: #2196f3;
+}
+
+.container::before {
+    width: 60px;
+    height: 10px;
+    transform: translate(-40px, -30px);
+}
+
+.title::before {
+    width: 10px;
+    height: 60px;
+    transform: translate(-40px, -30px);
+
+}
+
+.container::after {
+    right: 0;
+    bottom: 0;
+    width: 60px;
+    height: 10px;
+    transform: translate(40px, 30px);
+}
+
+.title::after {
+    right: 0;
+    bottom: 0;
+    width: 10px;
+    height: 60px;
+    transform: translate(40px, 30px);
+
 }
 
 .title {
@@ -24,34 +66,7 @@
     font-weight: 700;
 }
 
-.invisibleTop, .invisibleBottom {
-    position: absolute;
-    height: 80%;
-    width: 95%;
-    z-index: -1;
-    background-color: #303030;
-}
-
-.invisibleTop {
-    top: -10px;
-    right: -10px;
-}
-
-.invisibleBottom {
-    bottom: -10px;
-    left: -10px;
-}
-
-@media screen and (max-width: 845px) {
-    .container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 2rem;
-        margin: 0 1rem;
-    }
-
+@media screen and (max-width: 950px) {
     .title {
         font-size: 3.5rem;
     }
@@ -63,43 +78,120 @@
     }
 }
 
-@media screen and (max-width: 575px) {
-    .container {
-        padding: 1.5rem;
-        border-width: 5px;
-    }
-
+@media screen and (max-width: 630px) {
     .title {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
-    .invisibleTop {
-        top: -5px;
-        right: -5px;
+    .container {
+        margin: 50px;
+    }
+
+    .container::before {
+        width: 40px;
+        height: 6px;
+        transform: translate(-30px, -20px);
     }
     
-    .invisibleBottom {
-        bottom: -5px;
-        left: -5px;
+    .title::before {
+        width: 6px;
+        height: 40px;
+        transform: translate(-30px, -20px);
+    
+    }
+    
+    .container::after {
+        right: 0;
+        bottom: 0;
+        width: 40px;
+        height: 6px;
+        transform: translate(30px, 20px);
+    }
+    
+    .title::after {
+        right: 0;
+        bottom: 0;
+        width: 6px;
+        height: 40px;
+        transform: translate(30px, 20px);
+    
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .title {
+        font-size: 2rem;
     }
 }
 
 @media screen and (max-width: 420px) {
-    .container {
-        padding: 1rem;
-    }
-
     .title {
         font-size: 1.5rem;
     }
 }
 
-@media screen and (max-width: 300px) {
-    .container {
-        padding: 0.8rem;
-    }
-
+@media screen and (max-width: 350px) {
     .title {
         font-size: 1.2rem;
     }
+
+    .container {
+        margin: 40px;
+    }
+
+    .container::before {
+        width: 30px;
+        height: 4px;
+        transform: translate(-20px, -10px);
+    }
+    
+    .title::before {
+        width: 4px;
+        height: 30px;
+        transform: translate(-20px, -10px);
+    
+    }
+    
+    .container::after {
+        right: 0;
+        bottom: 0;
+        width: 30px;
+        height: 4px;
+        transform: translate(20px, 10px);
+    }
+    
+    .title::after {
+        right: 0;
+        bottom: 0;
+        width: 4px;
+        height: 30px;
+        transform: translate(20px, 10px);
+    
+    }
 }
+
+ @-webkit-keyframes slide-in-right {
+    0% {
+      -webkit-transform: translateX(1000px);
+              transform: translateX(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-right {
+    0% {
+      -webkit-transform: translateX(1000px);
+              transform: translateX(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
