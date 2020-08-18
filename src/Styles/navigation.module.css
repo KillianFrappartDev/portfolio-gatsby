@@ -16,7 +16,19 @@
     animation-delay: 1s;
 }
 
-.link {
+.navblack {
+    width: fit-content;
+    margin: 0 auto;
+    border: 1px solid rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+	-webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation-delay: 1s;
+}
+
+.link, .linkblack {
     height: 100%;
     width: 5rem;
     display: flex;
@@ -25,11 +37,24 @@
     justify-content: center;
     padding: 1rem 4rem;
     transition: all 1s ease;
+}
+
+.link {
     color: rgb(255, 255, 255);
+}
+
+.linkblack {
+    color: rgb(0, 0, 0);
 }
 
 .link:hover {
     background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    color: #2196f3;
+}
+
+.linkblack:hover {
+    background-color: rgb(0, 0, 0);
     cursor: pointer;
     color: #2196f3;
 }
@@ -39,20 +64,20 @@
 }
 
 @media screen and (max-width: 520px) {
-    .navbar {
+    .navbar, .navblack {
         width: 90%;
         justify-content: center;
         margin: 0 auto;
     }
 
-    .link {
+    .link, .linkblack {
         width: 100%;
         padding: 1rem 0;
     }
 }
 
 @media screen and (max-width: 350px) {
-    .navbar {
+    .navbar, .navblack {
         width: 95%;
     }
 
