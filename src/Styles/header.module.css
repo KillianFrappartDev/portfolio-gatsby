@@ -17,7 +17,7 @@
 
 .title {
     color: #FFF;
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: 700;
 }
 
@@ -37,4 +37,66 @@
 .invisibleBottom {
     bottom: -10px;
     left: -10px;
+}
+
+@media screen and (max-width: 845px) {
+    .container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        margin: 0 1rem;
+    }
+
+    .title {
+        font-size: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 715px) {
+    .title {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .container {
+        padding: 1.5rem;
+        border-width: 5px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .invisibleTop {
+        top: -5px;
+        right: -5px;
+    }
+    
+    .invisibleBottom {
+        bottom: -5px;
+        left: -5px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .container {
+        padding: 0.8rem;
+    }
+
+    .title {
+        font-size: 1.2rem;
+    }
 }
