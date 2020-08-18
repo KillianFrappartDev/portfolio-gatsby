@@ -28,7 +28,7 @@
     animation-delay: 1s;
 }
 
-.link, .linkblack {
+.link, .linkblack, .linkactive {
     height: 100%;
     width: 5rem;
     display: flex;
@@ -48,7 +48,7 @@
     color: rgb(0, 0, 0);
 }
 
-.link:hover, .linkblack:hover {
+.link:hover, .linkblack:hover, .linkactive {
     cursor: pointer;
     color: #2196f3;
 }
@@ -57,7 +57,7 @@
     background-color: rgb(255, 255, 255);
 }
 
-.linkblack:hover {
+.linkblack:hover, .linkactive {
     background-color: rgb(0, 0, 0);
 }
 
