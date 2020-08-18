@@ -6,6 +6,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url("../../static/header-bg.jpg");
+    background-size: cover;
+    filter: grayscale(100%);
 }
 
 .container {
