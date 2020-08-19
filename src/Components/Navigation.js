@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 
 import navigationStyle from "../Styles/navigation.module.css";
 
 const Navigation = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isFirstClick, setIsFirstClick] = useState(true);
   const [active, setActive] = useState("");
+
+  useEffect(() => {
+    window.addEventListener("scroll", checkScroll);
+  }, []);
 
   const checkScroll = () => {
     const current = window.scrollY;
@@ -15,13 +17,7 @@ const Navigation = () => {
     const skills = document.getElementById("skills").offsetTop;
 
     if (current < 100) {
-      setIsScrolled(false);
       setActive("");
-      return;
-    }
-
-    if (current > 100) {
-      setIsScrolled(true);
     }
 
     if (current > 400 && current < skills - 200) {
@@ -33,20 +29,9 @@ const Navigation = () => {
     }
   };
 
-  window.addEventListener("scroll", checkScroll);
-
   const clickHandler = section => {
     const target = document.getElementById(section).offsetTop;
     window.scrollTo(0, target);
-    setActive(section);
-  };
-
-  const getClass = name => {
-    if (active === name) {
-      return navigationStyle.linkactive;
-    } else {
-      return navigationStyle.linkblack;
-    }
   };
 
   return (
@@ -64,17 +49,13 @@ const Navigation = () => {
         ></link>
       </Helmet>
       <div className={navigationStyle.container}>
-        <nav
-          className={
-            isScrolled ? navigationStyle.navblack : navigationStyle.navbar
-          }
-        >
+        <nav className={navigationStyle.navbar}>
           <div
             onClick={clickHandler.bind(null, "about")}
             className={
-              //   isScrolled ? navigationStyle.linkblack : navigationStyle.link
-              // isScrolled && active === "about" ? navigationStyle.linkactive : navigationStyle.link
-              isScrolled ? getClass("about") : navigationStyle.link
+              active === "about"
+                ? navigationStyle.linkactive
+                : navigationStyle.link
             }
           >
             <i className="fas fa-user fa-2x"></i>
@@ -83,9 +64,9 @@ const Navigation = () => {
           <div
             onClick={clickHandler.bind(null, "skills")}
             className={
-              //   isScrolled ? navigationStyle.linkblack : navigationStyle.link
-              // isScrolled && active === "skills" ? navigationStyle.linkactive : navigationStyle.link
-              isScrolled ? getClass("skills") : navigationStyle.link
+              active === "skills"
+                ? navigationStyle.linkactive
+                : navigationStyle.link
             }
           >
             <i className="fas fa-code fa-2x"></i>
@@ -93,7 +74,9 @@ const Navigation = () => {
           </div>
           <div
             className={
-              isScrolled ? navigationStyle.linkblack : navigationStyle.link
+              active === "projects"
+                ? navigationStyle.linkactive
+                : navigationStyle.link
             }
           >
             <i className="fas fa-hammer fa-2x"></i>
@@ -101,7 +84,9 @@ const Navigation = () => {
           </div>
           <div
             className={
-              isScrolled ? navigationStyle.linkblack : navigationStyle.link
+              active === "contact"
+                ? navigationStyle.linkactive
+                : navigationStyle.link
             }
           >
             <i className="fas fa-paper-plane fa-2x"></i>
