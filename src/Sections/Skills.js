@@ -71,7 +71,7 @@ const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const checkScroll = () => {
-    window.scrollY > 1600 && setIsVisible(true);
+    window.scrollY > 1500 && setIsVisible(true);
   };
 
   window.addEventListener("scroll", checkScroll);
